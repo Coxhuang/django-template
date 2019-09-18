@@ -50,6 +50,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # 跨域
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -198,3 +199,40 @@ MY_PAGE_SIZE_QUERY_PARAM = "size" # 可以通过传入pager1/?page=2&size=4,改�
 MY_MAX_PAGE_SIZE = 1000 # 最大页数不超过1000
 MY_PAGE_QUERY_PARAM = "page"  # 获取页码数的
 
+
+'''
+------------------------  跨域 Config ------------------------
+'''
+# 中间件
+# 'corsheaders.middleware.CorsMiddleware', # 跨域
+# 'django.middleware.common.CommonMiddleware', # 循序不能变
+# 跨域增加忽略
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_WHITELIST = (
+    '*',
+)
+
+CORS_ALLOW_METHODS = (
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+    # 'VIEW',
+)
+
+CORS_ALLOW_HEADERS = (
+    'XMLHttpRequest',
+    'X_FILENAME',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'User-agent',
+    'x-csrftoken',
+    'x-requested-with',
+    'token',
+)

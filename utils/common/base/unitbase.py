@@ -55,6 +55,7 @@ class MyUnitBase(object):
 
         try:
             instance = get_object_or_404(model, username=field)
+
         except:
             raise exception.myException400({
                 "success": False,
