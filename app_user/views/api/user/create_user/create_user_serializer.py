@@ -42,7 +42,6 @@ class CreateUserSerializer(MySerializerBase):
         user = models.UserProfile.objects.create_user(
             **validated_data
         )
-        print(validated_data)
         return user
 
 

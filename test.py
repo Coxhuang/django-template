@@ -1,13 +1,10 @@
-import requests
-import datetime
+from faker import Faker
 
+fake = Faker(locale='zh_CN')
 
-while 1:
-    r = requests.post(
-        'https://search.readmorejoy.com/dream',
-        data={
-            "title": datetime.datetime.now(),
-            "user": "1",
-            "input": "*" * 1024
-        })
-    print(r.status_code)
+print(fake.name())
+print(fake.address())
+print(fake.country())
+print(fake.user_agent())
+print(fake.chrome())
+
